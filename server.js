@@ -9,7 +9,7 @@ const path = require('path');
 const hash = require('random-hash'); // you have to install this package:
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://127.0.0.1:27017/namanUsers", {
+mongoose.connect("mongodb://127.0.0.1:27017/databaseNaman0001", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
