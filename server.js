@@ -27,6 +27,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(forms.array()); 
 app.use(bodyParser.json());
 
+
+const cors = require('cors');
+app.use(cors({
+    origin: '*'
+}));
+
 var User = require('./app/models/user.model')
 
 // define a simple route
@@ -39,6 +45,6 @@ require('./app/routes/location.routes.js')(app);
 require('./app/routes/user.routes.js')(app);
 
 // listen for requests
-app.listen(3000, function(){
+app.listen(3001, function(){
     console.log("Server is listening on port 3000");
 });

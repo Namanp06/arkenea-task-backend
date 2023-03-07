@@ -3,6 +3,8 @@ const hash = require('random-hash');
 const multer = require("multer");
 var user = require('../controllers/user.controller.js');
 
+var multerMiddleware = require('../middlewares/multer.middleware');
+
 
 module.exports = function(app) {
     
@@ -20,8 +22,10 @@ module.exports = function(app) {
             cb(null, path.join(__dirname, '../../uploads'));
             },
             filename: function(req, file, cb) {
+                console.log('debug line 23', file)
                 let temp = file.originalname.split('.');
                 const filename = temp[0] + '-' + hash.generateHash({length: 5}) + '.' + temp[1]
+                console.log('debug 26', filename);
             cb(null, filename);
             }
     });
@@ -35,7 +39,7 @@ module.exports = function(app) {
     });  
 
     // Create a new Note
-    app.post('/user', upload.single('my_image'), user.create);
-    
+//     const upload = multerMiddleware.upload;
+    app.post('/user',upload.single('my_image'), user.create);
     
 }
