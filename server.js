@@ -20,6 +20,8 @@ db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
 });
+const cors = require('cors');
+app.use(cors());
 
 app.use(morgan("dev"));
 // app.use('/uploads', express.static('uploads'));
@@ -30,10 +32,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-const cors = require('cors');
-app.use(cors({
-    origin: '*'
-}));
 
 var User = require('./app/models/user.model')
 
