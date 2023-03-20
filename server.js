@@ -8,8 +8,10 @@ const morgan = require("morgan");
 const path = require('path');
 const hash = require('random-hash'); // you have to install this package:
 
+const mongoDbLocalUrl= "mongodb://127.0.0.1:27017/databaseNaman0001";
+const mongoDbAtlasUrl = "mongodb+srv://mongo:jjOsBLDNeEfgOXlV@cluster0.ksfsa90.mongodb.net/myFirstDb?retryWrites=true&w=majority"
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://127.0.0.1:27017/databaseNaman0001", {
+mongoose.connect(mongoDbAtlasUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
